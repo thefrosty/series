@@ -6,7 +6,7 @@ Series is a plugin created to allow users to easily link posts together by using
 
 ## Professional Support
 
-If you need professional plugin support from me, the plugin author, you can access the support forums at [Theme Hybrid](https://github.com/justintadlock/series/issues), which is a professional WordPress help/support site where I handle support for all my plugins and themes for a community of 75,000+ users (and growing).
+If you need professional plugin support from me, the plugin author, you can access the support forums at [Github Issues](https://github.com/justintadlock/series/issues), which is a professional WordPress help/support site where I handle support for all my plugins and themes for a community of 75,000+ users (and growing).
 
 ## Copyright and License
 
