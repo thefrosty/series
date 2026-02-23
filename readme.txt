@@ -1,10 +1,10 @@
 === Series ===
 
 Contributors: greenshady
-Donate link: https://themehybrid.com/donate
+Donate link: https://github.com/justintadlock/series/issues
 Tags: series, widgets, shortcodes
 Requires at least: 4.8
-Tested up to: 5.0.2
+Tested up to: 6.9.1
 Requires PHP: 5.3
 Stable tag: 2.0.1
 License: GPLv2 or later
@@ -18,7 +18,7 @@ Series is a plugin created to allow users to easily link posts together by using
 
 ### Professional Support
 
-If you need professional plugin support from me, the plugin author, you can access the support forums at [Theme Hybrid](https://themehybrid.com/support), which is a professional WordPress help/support site where I handle support for all my plugins and themes for a community of 75,000+ users (and growing).
+If you need professional plugin support from me, the plugin author, you can access the support forums at [Theme Hybrid](https://github.com/justintadlock/series/issues), which is a professional WordPress help/support site where I handle support for all my plugins and themes for a community of 75,000+ users (and growing).
 
 ### Plugin Development
 
@@ -26,7 +26,7 @@ If you're a theme author, plugin author, or just a code hobbyist, you can follow
 
 ### Donations
 
-Yes, I do accept donations.  If you want to donate, you can do so from my [donations page](https://themehybrid.com/donate) or grab me something from my [Amazon Wish List](http://a.co/flUb0ns).
+Yes, I do accept donations.  If you want to donate, you can do so from my [donations page](https://github.com/justintadlock/series/issues) or grab me something from my [Amazon Wish List](https://github.com/justintadlock/series/issues).
 
 I appreciate all donations, no matter the size.  Further development of this plugin is not contingent on donations, but they are always a nice incentive.
 
