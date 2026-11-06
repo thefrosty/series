@@ -11,7 +11,10 @@
 
 namespace Series;
 
+use WP_Query;
+
 # Filter prior to getting posts from the DB.
+
 add_action( 'pre_get_posts', __NAMESPACE__ . '\pre_get_posts' );
 
 /**
@@ -19,10 +22,10 @@ add_action( 'pre_get_posts', __NAMESPACE__ . '\pre_get_posts' );
  *
  * @since  2.0.0
  * @access public
- * @param  object  $query
+ * @param  WP_Query  $query
  * @return void
  */
-function pre_get_posts( $query ) {
+function pre_get_posts( WP_Query $query ): void {
 
 	if ( ! is_admin() && $query->is_main_query() && is_series() ) {
 
