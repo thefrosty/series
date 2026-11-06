@@ -24,8 +24,8 @@ add_filter( 'term_updated_messages', __NAMESPACE__ . '\term_updated_messages', 5
  * @access public
  * @return string
  */
-function get_series_taxonomy() {
-
+function get_series_taxonomy(): string
+{
 	return apply_filters( 'series/get_series_taxonomy', 'series' );
 }
 
@@ -36,8 +36,8 @@ function get_series_taxonomy() {
  * @access public
  * @return array
  */
-function get_series_capabilities() {
-
+function get_series_capabilities(): array
+{
 	$caps = array(
 		'manage_terms' => 'manage_series',
 		'edit_terms'   => 'manage_series',
@@ -55,8 +55,8 @@ function get_series_capabilities() {
  * @access public
  * @return array
  */
-function get_series_labels() {
-
+function get_series_labels(): array
+{
 	$labels = array(
 		'name'                       => __( 'Series',                           'series' ),
 		'singular_name'              => __( 'Series',                           'series' ),
@@ -91,8 +91,8 @@ function get_series_labels() {
  * @access public
  * @return void.
  */
-function register_taxonomies() {
-
+function register_taxonomies(): void
+{
 	// Set up the arguments for the portfolio series taxonomy.
 	$series_args = array(
 		'public'            => true,
@@ -131,8 +131,8 @@ function register_taxonomies() {
  * @param  array  $messages
  * @return array
  */
-function term_updated_messages( $messages ) {
-
+function term_updated_messages( array $messages ): array
+{
 	$series_taxonomy = get_series_taxonomy();
 
 	// Add the portfolio series messages.
