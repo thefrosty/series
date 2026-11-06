@@ -11,13 +11,15 @@
 
 namespace Series\Widgets;
 
+use WP_Widget;
+use function Series\list_related_posts;
+
 /**
  * List related posts widget class.
- *
  * @since  2.0.0
  * @access public
  */
-class List_Related extends \WP_Widget {
+class List_Related extends WP_Widget {
 
 	/**
 	 * Default arguments for the widget settings.
@@ -26,7 +28,7 @@ class List_Related extends \WP_Widget {
 	 * @access public
 	 * @var    array
 	 */
-	public $defaults = array();
+	public array $defaults = array();
 
 	/**
 	 * Set up the widget's unique name, ID, class, description, and other options.
@@ -57,41 +59,51 @@ class List_Related extends \WP_Widget {
 
 	/**
 	 * Outputs the widget based on the arguments input through the widget controls.
-	 *
+	 * @param array $args Display arguments including 'before_title', 'after_title',
+     *                         'before_widget', and 'after_widget'.
+     * @param array $instance The settings for the particular instance of the widget.
+	 * @return void
 	 * @since  2.0.0
 	 * @access public
-	 * @return void
 	 */
-	public function widget( $sidebar, $instance ) {
+	public function widget( $args, $instance ): void
+    {
 
-		if ( ! is_singular() )
-			return;
+		if ( ! is_singular() ) {
+            return;
+        }
 
 		// Set the $args for wp_get_archives() to the $instance array.
-		$args = wp_parse_args( $instance, $this->defaults );
+		$_args = wp_parse_args( $instance, $this->defaults );
 
 		// Don't echo.
-		$args['echo'] = false;
+        $_args['echo'] = false;
 
 		// Get the series list.
-		$list = \Series\list_related_posts( get_queried_object_id(), $args );
+		$list = list_related_posts( get_queried_object_id(), $_args );
 
 		// Only display if we have a series.
 		if ( empty( $list ) )
 			return;
 
 		// Output the theme's widget wrapper.
-		echo $sidebar['before_widget'];
+		echo $args['before_widget'];
 
 		// If a title was input by the user, display it.
-		if ( ! empty( $instance['title'] ) )
-			echo $sidebar['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $sidebar['after_title'];
+		if ( ! empty( $instance['title'] ) ) {
+            echo $args['before_title'] . apply_filters(
+                    'widget_title',
+                    esc_html( $instance['title'] ),
+                    $instance,
+                    $this->id_base
+                ) . $args['after_title'];
+        }
 
 		// Output the list.
 		echo $list;
 
 		// Close the theme's widget wrapper.
-		echo $sidebar['after_widget'];
+		echo $args['after_widget'];
 	}
 
 	/**

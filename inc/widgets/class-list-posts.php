@@ -11,13 +11,15 @@
 
 namespace Series\Widgets;
 
+use WP_Widget;
+use function Series\get_series_taxonomy;
+
 /**
  * List posts widget class.
- *
  * @since  2.0.0
  * @access public
  */
-class List_Posts extends \WP_Widget {
+class List_Posts extends WP_Widget {
 
 	/**
 	 * Default arguments for the widget settings.
@@ -26,7 +28,7 @@ class List_Posts extends \WP_Widget {
 	 * @access public
 	 * @var    array
 	 */
-	public $defaults = array();
+	public array $defaults = array();
 
 	/**
 	 * Set up the widget's unique name, ID, class, description, and other options.
@@ -58,32 +60,42 @@ class List_Posts extends \WP_Widget {
 
 	/**
 	 * Outputs the widget based on the arguments input through the widget controls.
-	 *
+	 * @param array $args Display arguments including 'before_title', 'after_title',
+     *                         'before_widget', and 'after_widget'.
+     * @param array $instance The settings for the particular instance of the widget.
+	 * @return void
 	 * @since  2.0.0
 	 * @access public
-	 * @return void
 	 */
-	public function widget( $sidebar, $instance ) {
+	public function widget( $args, $instance ): void
+    {
 
 		// Set the $args for wp_get_archives() to the $instance array.
-		$args = wp_parse_args( $instance, $this->defaults );
+		$_args = wp_parse_args( $instance, $this->defaults );
 
 		// If there is no series, bail.
-		if ( ! $args['series'] )
-			return;
+		if ( ! $_args['series'] ) {
+            return;
+        }
 
 		// Output the theme's widget wrapper.
-		echo $sidebar['before_widget'];
+		echo $args['before_widget'];
 
 		// If a title was input by the user, display it.
-		if ( ! empty( $instance['title'] ) )
-			echo $sidebar['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $sidebar['after_title'];
+		if ( ! empty( $instance['title'] ) ) {
+            echo $args['before_title'] . apply_filters(
+                    'widget_title',
+                    esc_html( $instance['title'] ),
+                    $instance,
+                    $this->id_base
+                ) . $args['after_title'];
+        }
 
 		// Output the posts list.
-		\Series\list_posts( $args );
+		\Series\list_posts( $_args );
 
 		// Close the theme's widget wrapper.
-		echo $sidebar['after_widget'];
+		echo $args['after_widget'];
 	}
 
 	/**
@@ -96,7 +108,8 @@ class List_Posts extends \WP_Widget {
 	 * @param  array  $old_instance
 	 * @return array
 	 */
-	function update( $new_instance, $old_instance ) {
+	function update( $new_instance, $old_instance ): array
+    {
 
 		// Sanitize title.
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
@@ -126,13 +139,14 @@ class List_Posts extends \WP_Widget {
 	 * @param  array  $instance
 	 * @param  void
 	 */
-	public function form( $instance ) {
+	public function form( $instance ): void
+    {
 
 		// Merge the user-selected arguments with the defaults.
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
 
 		/* Get series. */
-		$terms = get_terms( \Series\get_series_taxonomy() );
+		$terms = get_terms( get_series_taxonomy() );
 
 		// If there are no terms, return.
 		if ( empty( $terms ) ) {
