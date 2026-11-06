@@ -116,7 +116,8 @@ class List_Related extends WP_Widget {
 	 * @param  array  $old_instance
 	 * @return array
 	 */
-	function update( $new_instance, $old_instance ) {
+	function update( $new_instance, $old_instance ): array
+    {
 
 		// Sanitize title.
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
@@ -143,7 +144,8 @@ class List_Related extends WP_Widget {
 	 * @param  array  $instance
 	 * @param  void
 	 */
-	public function form( $instance ) {
+	public function form( $instance ): void
+    {
 
 		// Merge the user-selected arguments with the defaults.
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
