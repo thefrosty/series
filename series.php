@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name  Series
+ * Plugin Name: Series
  * Plugin URI: https://github.com/thefrosty/series
  * Description: Plugin that allows you to collect posts in a series.
  * Version: 2.1.0
  * Requires PHP: 8.4
- * Author:  Justin Tadlock
+ * Author: Justin Tadlock
  * Text Domain: series
  * Domain Path: /lang
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
