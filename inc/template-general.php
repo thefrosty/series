@@ -19,49 +19,46 @@ namespace Series;
  * @param  mixed  $term
  * @return bool
  */
-function is_series( $term = '' ) {
-
+function is_series( mixed $term = '' ): bool
+{
 	return apply_filters( 'series/is_series', is_tax( get_series_taxonomy(), $term ), $term );
 }
 
 /**
  * Conditional tag to check if the post is in a series.
- *
+ * @param  string|int|array  $term
+ * @param  object|int|null        $post
+ * @return bool
  * @since  2.0.0
  * @access public
- * @param  string|int|array  $term
- * @param  int|object        $post
- * @return bool
  */
-function in_series( $term, $post = null ) {
-
+function in_series( mixed $term, mixed $post = null ): bool
+{
 	return apply_filters( 'series/in_series', has_term( $term, get_series_taxonomy(), $post ), $term, $post );
 }
 
 /**
  * Outputs a post's series.
- *
- * @since  2.0.0
- * @access public
  * @param  array   $args
  * @return void
+ *@since  2.0.0
+ * @access public
  */
-function post_series( $args = array() ) {
-
+function post_series( array $args = array() ): void
+{
 	echo get_post_series( $args );
 }
 
 /**
  * Wrapper for `get_the_term_list()` for outputting a list of the current
  * post's series.
- *
- * @since  2.0.0
- * @access public
  * @param  array   $args
  * @return string
+ *@since  2.0.0
+ * @access public
  */
-function get_post_series( $args = array() ) {
-
+function get_post_series( array $args = array() ): string
+{
 	$html = '';
 
 	$defaults = array(
@@ -89,24 +86,27 @@ function get_post_series( $args = array() ) {
 
 /**
  * Displays a list of posts by series.
- *
- * @since  2.0.0
  * @param  array   $args
- * @return string
+ * @return void|string
+ * @since  2.0.0
  */
-function list_posts( $args = array() ) {
+function list_posts( array $args = array() )
+{
 
-	if ( empty( $args['series'] ) )
-		return;
+	if ( empty( $args['series'] ) ) {
+        return;
+    }
 
 	$out     = '';
 	$post_id = 0;
 
-	if ( in_the_loop() )
-		$post_id = get_the_ID();
+	if ( in_the_loop() ) {
+        $post_id = get_the_ID();
+    }
 
-	else if ( is_singular() )
-		$post_id = get_queried_object_id();
+	else if ( is_singular() ) {
+        $post_id = get_queried_object_id();
+    }
 
 	$defaults = array(
 		'series'         => '', // term slug
@@ -144,8 +144,8 @@ function list_posts( $args = array() ) {
 			$title = get_the_title() ? the_title( '', '', false ) : get_the_ID();
 
 			$out .= $post_id === get_the_ID()
-			        ? sprintf( '<li>%s</li>', $title )
-			        : sprintf( '<li><a href="%s">%s</a></li>', esc_url( get_permalink() ), $title );
+			        ? sprintf( '<li>%s</li>', esc_html( $title ) )
+			        : sprintf( '<li><a href="%s">%s</a></li>', esc_url( get_permalink() ), esc_html( $title ) );
 		}
 
 		$out .= '</ul>';
@@ -153,30 +153,34 @@ function list_posts( $args = array() ) {
 
 	wp_reset_postdata();
 
-	if ( false === $args['echo'] )
-		return $out;
+	if ( false === $args['echo'] ) {
+        return $out;
+    }
 
 	echo $out;
 }
 
 /**
  * Displays a list of posts related to the current post.
- *
+ * @param int|null $post_id
+ * @param array $args
+ * @return string|null
  * @since  2.0.0
- * @param  int     $post_id
- * @param  array   $args
- * @return string
  */
-function list_related_posts( $post_id = 0, $args = array() ) {
+function list_related_posts( ?int $post_id = 0, array $args = array() ): ?string
+{
 
-	if ( ! $post_id )
-		$post_id = get_the_ID();
+	if ( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
 
-	if ( $post_id )
-		$series = get_the_terms( $post_id, get_series_taxonomy() );
+	if ( $post_id ) {
+        $series = get_the_terms($post_id, get_series_taxonomy());
+    }
 
-	if ( empty( $series ) )
-		return;
+	if ( empty( $series ) ) {
+        return null;
+    }
 
 	$series = reset( $series );
 
