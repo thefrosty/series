@@ -18,7 +18,8 @@ namespace Series;
  * @access public
  * @return int
  */
-function get_posts_per_page() {
+function get_posts_per_page(): int
+{
 
 	return apply_filters( 'series/get_posts_per_page', get_setting( 'posts_per_page' ) );
 }
@@ -30,7 +31,8 @@ function get_posts_per_page() {
  * @access public
  * @return string
  */
-function get_posts_orderby() {
+function get_posts_orderby(): string
+{
 
 	return apply_filters( 'series/get_posts_orderby', get_setting( 'posts_orderby' ) );
 }
@@ -42,7 +44,8 @@ function get_posts_orderby() {
  * @access public
  * @return string
  */
-function get_posts_order() {
+function get_posts_order(): string
+{
 
 	return apply_filters( 'series/get_posts_order', get_setting( 'posts_order' ) );
 }
@@ -54,13 +57,14 @@ function get_posts_order() {
  * @access public
  * @return string
  */
-function get_series_rewrite_base() {
+function get_series_rewrite_base(): string
+{
 
 	return apply_filters( 'series/get_series_rewrite_base', get_setting( 'series_rewrite_base' ) );
 }
 
 /**
- * Gets a setting from from the plugin settings in the database.
+ * Gets a setting from the plugin settings in the database.
  *
  * @since  2.0.0
  * @access public
@@ -82,7 +86,8 @@ function get_setting( $option = '' ) {
  * @access public
  * @return array
  */
-function get_default_settings() {
+function get_default_settings(): array
+{
 
 	return array(
 		// @since 2.0.0
