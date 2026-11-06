@@ -152,7 +152,7 @@ final class Plugin {
     {
 
 		// Internationalize the text strings used.
-		add_action( 'plugins_loaded', array( $this, 'i18n' ), 2 );
+		add_action( 'init', array( $this, 'i18n' ), 2 );
 
 		/* Register widgets. */
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
