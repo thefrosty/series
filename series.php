@@ -33,7 +33,6 @@ namespace Series;
  *
  * @since  2.0.0
  * @access public
- * @return void
  */
 final class Plugin {
 
@@ -44,7 +43,7 @@ final class Plugin {
 	 * @access public
 	 * @var    string
 	 */
-	public $dir = '';
+	public string $dir = '';
 
 	/**
 	 * Plugin directory URI.
@@ -53,16 +52,16 @@ final class Plugin {
 	 * @access public
 	 * @var    string
 	 */
-	public $uri = '';
+	public string $uri = '';
 
 	/**
 	 * Returns the instance.
 	 *
 	 * @since  2.0.0
 	 * @access public
-	 * @return object
 	 */
-	public static function get_instance() {
+	public static function get_instance(): self
+    {
 
 		static $instance = null;
 
@@ -102,7 +101,8 @@ final class Plugin {
 	 * @access private
 	 * @return void
 	 */
-	private function setup() {
+	private function setup(): void
+    {
 
 		// Main plugin directory path and URI.
 		$this->dir = trailingslashit( plugin_dir_path( __FILE__ ) );
@@ -116,7 +116,8 @@ final class Plugin {
 	 * @access private
 	 * @return void
 	 */
-	private function includes() {
+	private function includes(): void
+    {
 
 		// Include functions files.
 		require_once( $this->dir . 'inc/functions-filters.php'    );
@@ -147,7 +148,8 @@ final class Plugin {
 	 * @access private
 	 * @return void
 	 */
-	private function setup_actions() {
+	private function setup_actions(): void
+    {
 
 		// Internationalize the text strings used.
 		add_action( 'plugins_loaded', array( $this, 'i18n' ), 2 );
@@ -166,7 +168,7 @@ final class Plugin {
 	 * @access public
 	 * @return void
 	 */
-	public function i18n() {
+	public function i18n(): void {
 
 		load_plugin_textdomain( 'series', false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . 'lang' );
 	}
@@ -178,7 +180,7 @@ final class Plugin {
 	 * @access public
 	 * @return void
 	 */
-	public function register_widgets() {
+	public function register_widgets(): void {
 
 		register_widget( __NAMESPACE__ . '\Widgets\List_Posts'   );
 		register_widget( __NAMESPACE__ . '\Widgets\List_Related' );
@@ -191,7 +193,7 @@ final class Plugin {
 	 * @access public
 	 * @return void
 	 */
-	public function activation() {
+	public function activation(): void {
 
 		// Get the administrator role.
 		$role = get_role( 'administrator' );
@@ -207,12 +209,9 @@ final class Plugin {
 /**
  * Gets the instance of the `Plugin` class.  This function is useful for quickly grabbing data
  * used throughout the plugin.
- *
- * @since  2.0.0
- * @access public
- * @return object
+ * @return Plugin
  */
-function plugin() {
+function plugin(): Plugin {
 
 	return Plugin::get_instance();
 }
