@@ -21,9 +21,8 @@ final class Settings_Page {
 	 * Settings page name.
 	 * @since  2.0.0
 	 * @access public
-	 * @var    string
 	 */
-	public string $settings_page = '';
+	public ?string $settings_page = null;
 
 	/**
 	 * Sets up the needed actions for adding and saving the meta boxes.
@@ -53,7 +52,6 @@ final class Settings_Page {
 		);
 
 		if ( $this->settings_page ) {
-
 			// Register settings.
 			add_action( 'admin_init', [ $this, 'register_settings' ] );
 		}
