@@ -18,11 +18,11 @@ namespace Series;
  * @access public
  * @return string
  */
-function get_series_rewrite_slug() {
-
+function get_series_rewrite_slug(): string
+{
 	$series_base = get_series_rewrite_base();
 
-	$slug = $series_base ? $series_base : 'series';
+	$slug = $series_base ?: 'series';
 
 	return apply_filters( 'series/get_series_rewrite_slug', $slug );
 }

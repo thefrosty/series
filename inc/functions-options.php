@@ -20,7 +20,6 @@ namespace Series;
  */
 function get_posts_per_page(): int
 {
-
 	return apply_filters( 'series/get_posts_per_page', get_setting( 'posts_per_page' ) );
 }
 
@@ -33,7 +32,6 @@ function get_posts_per_page(): int
  */
 function get_posts_orderby(): string
 {
-
 	return apply_filters( 'series/get_posts_orderby', get_setting( 'posts_orderby' ) );
 }
 
@@ -46,37 +44,33 @@ function get_posts_orderby(): string
  */
 function get_posts_order(): string
 {
-
 	return apply_filters( 'series/get_posts_order', get_setting( 'posts_order' ) );
 }
 
 /**
  * Returns the series rewrite base. Used for series archives.
- *
+ * @return string|false
  * @since  2.0.0
  * @access public
- * @return string
  */
-function get_series_rewrite_base(): string
+function get_series_rewrite_base(): string|false
 {
-
 	return apply_filters( 'series/get_series_rewrite_base', get_setting( 'series_rewrite_base' ) );
 }
 
 /**
  * Gets a setting from the plugin settings in the database.
- *
+ * @param string $option
+ * @return mixed
  * @since  2.0.0
  * @access public
- * @return mixed
  */
-function get_setting( $option = '' ) {
-
+function get_setting( string $option = '' ): mixed
+{
 	$defaults = get_default_settings();
-
 	$settings = wp_parse_args( get_option( 'series_settings', $defaults ), $defaults );
 
-	return isset( $settings[ $option ] ) ? $settings[ $option ] : false;
+	return $settings[$option] ?? false;
 }
 
 /**
@@ -88,7 +82,6 @@ function get_setting( $option = '' ) {
  */
 function get_default_settings(): array
 {
-
 	return array(
 		// @since 2.0.0
 		'series_rewrite_base' => 'series',
