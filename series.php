@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Series
- * Plugin URI:  https://themehybrid.com/plugins/series
+ * Plugin URI:  https://github.com/justintadlock/series
  * Description: Plugin that allows you to collect posts in a series.
  * Version:     2.0.1
  * Author:      Justin Tadlock
- * Author URI:  https://themehybrid.com
+ * Author URI:  http://justintadlock.com
  * Text Domain: series
  * Domain Path: /lang
  *
@@ -21,8 +21,8 @@
  *
  * @package   Series
  * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright Copyright (c) 2009 - 2018, Justin Tadlock
- * @link      https://themehybrid.com/plugins/series
+ * @copyright Copyright (c) 2009 - 2026, Justin Tadlock
+ * @link      https://github.com/justintadlock/series
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 

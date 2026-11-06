@@ -4,8 +4,8 @@
  *
  * @package   Series
  * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright Copyright (c) 2009 - 2018, Justin Tadlock
- * @link      https://themehybrid.com/plugins/series
+ * @copyright Copyright (c) 2009 - 2026, Justin Tadlock
+ * @link      https://github.com/justintadlock/series
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 

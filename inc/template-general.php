@@ -4,8 +4,8 @@
  *
  * @package   Series
  * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright Copyright (c) 2009 - 2018, Justin Tadlock
- * @link      https://themehybrid.com/plugins/series
+ * @copyright Copyright (c) 2009 - 2026, Justin Tadlock
+ * @link      https://github.com/justintadlock/series
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -35,7 +35,7 @@ function is_series( $term = '' ) {
  */
 function in_series( $term, $post = null ) {
 
-	return apply_filters( 'series/in_series', has_term( $series, get_series_taxonomy(), $post ), $term, $post );
+	return apply_filters( 'series/in_series', has_term( $term, get_series_taxonomy(), $post ), $term, $post );
 }
 
 /**
@@ -170,7 +170,7 @@ function list_posts( $args = array() ) {
 function list_related_posts( $post_id = 0, $args = array() ) {
 
 	if ( ! $post_id )
-		get_the_ID();
+		$post_id = get_the_ID();
 
 	if ( $post_id )
 		$series = get_the_terms( $post_id, get_series_taxonomy() );

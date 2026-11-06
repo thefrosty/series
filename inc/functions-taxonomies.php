@@ -4,8 +4,8 @@
  *
  * @package   Series
  * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright Copyright (c) 2009 - 2018, Justin Tadlock
- * @link      https://themehybrid.com/plugins/series
+ * @copyright Copyright (c) 2009 - 2026, Justin Tadlock
+ * @link      https://github.com/justintadlock/series
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -58,27 +58,27 @@ function get_series_capabilities() {
 function get_series_labels() {
 
 	$labels = array(
-		'name'                       => __( 'Series',                           'custom-content-portfolio' ),
-		'singular_name'              => __( 'Series',                           'custom-content-portfolio' ),
-		'menu_name'                  => __( 'Series',                           'custom-content-portfolio' ),
-		'name_admin_bar'             => __( 'Series',                           'custom-content-portfolio' ),
-		'search_items'               => __( 'Search Series',                    'custom-content-portfolio' ),
-		'popular_items'              => __( 'Popular Series',                   'custom-content-portfolio' ),
-		'all_items'                  => __( 'All Series',                       'custom-content-portfolio' ),
-		'edit_item'                  => __( 'Edit Series',                      'custom-content-portfolio' ),
-		'view_item'                  => __( 'View Series',                      'custom-content-portfolio' ),
-		'update_item'                => __( 'Update Series',                    'custom-content-portfolio' ),
-		'add_new_item'               => __( 'Add New Series',                   'custom-content-portfolio' ),
-		'new_item_name'              => __( 'New Series Name',                  'custom-content-portfolio' ),
-		'not_found'                  => __( 'No series found.',                 'custom-content-portfolio' ),
-		'no_terms'                   => __( 'No series',                        'custom-content-portfolio' ),
-		'items_list_navigation'      => __( 'Series list navigation',           'custom-content-portfolio' ),
-		'items_list'                 => __( 'Series list',                      'custom-content-portfolio' ),
+		'name'                       => __( 'Series',                           'series' ),
+		'singular_name'              => __( 'Series',                           'series' ),
+		'menu_name'                  => __( 'Series',                           'series' ),
+		'name_admin_bar'             => __( 'Series',                           'series' ),
+		'search_items'               => __( 'Search Series',                    'series' ),
+		'popular_items'              => __( 'Popular Series',                   'series' ),
+		'all_items'                  => __( 'All Series',                       'series' ),
+		'edit_item'                  => __( 'Edit Series',                      'series' ),
+		'view_item'                  => __( 'View Series',                      'series' ),
+		'update_item'                => __( 'Update Series',                    'series' ),
+		'add_new_item'               => __( 'Add New Series',                   'series' ),
+		'new_item_name'              => __( 'New Series Name',                  'series' ),
+		'not_found'                  => __( 'No series found.',                 'series' ),
+		'no_terms'                   => __( 'No series',                        'series' ),
+		'items_list_navigation'      => __( 'Series list navigation',           'series' ),
+		'items_list'                 => __( 'Series list',                      'series' ),
 
 		// Non-hierarchical only.
-		'separate_items_with_commas' => __( 'Separate series with commas',      'custom-content-portfolio' ),
-		'add_or_remove_items'        => __( 'Add or remove series',             'custom-content-portfolio' ),
-		'choose_from_most_used'      => __( 'Choose from the most used series', 'custom-content-portfolio' ),
+		'separate_items_with_commas' => __( 'Separate series with commas',      'series' ),
+		'add_or_remove_items'        => __( 'Add or remove series',             'series' ),
+		'choose_from_most_used'      => __( 'Choose from the most used series', 'series' ),
 	);
 
 	return apply_filters( 'series/get_series_labels', $labels );
@@ -138,12 +138,12 @@ function term_updated_messages( $messages ) {
 	// Add the portfolio series messages.
 	$messages[ $series_taxonomy ] = array(
 		0 => '',
-		1 => __( 'Series added.',       'custom-content-portfolio' ),
-		2 => __( 'Series deleted.',     'custom-content-portfolio' ),
-		3 => __( 'Series updated.',     'custom-content-portfolio' ),
-		4 => __( 'Series not added.',   'custom-content-portfolio' ),
-		5 => __( 'Series not updated.', 'custom-content-portfolio' ),
-		6 => __( 'Series deleted.',     'custom-content-portfolio' ),
+		1 => __( 'Series added.',       'series' ),
+		2 => __( 'Series deleted.',     'series' ),
+		3 => __( 'Series updated.',     'series' ),
+		4 => __( 'Series not added.',   'series' ),
+		5 => __( 'Series not updated.', 'series' ),
+		6 => __( 'Series deleted.',     'series' ),
 	);
 
 	return $messages;
