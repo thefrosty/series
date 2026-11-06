@@ -108,7 +108,7 @@ class List_Posts extends WP_Widget {
 	 * @param  array  $old_instance
 	 * @return array
 	 */
-	function update( $new_instance, $old_instance ): array
+	public function update( $new_instance, $old_instance ): array
     {
 
 		// Sanitize title.
