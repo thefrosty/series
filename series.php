@@ -182,8 +182,8 @@ final class Plugin {
 	 */
 	public function register_widgets(): void {
 
-		register_widget( __NAMESPACE__ . '\Widgets\List_Posts'   );
-		register_widget( __NAMESPACE__ . '\Widgets\List_Related' );
+		register_widget(Widgets\List_Posts::class);
+		register_widget(Widgets\List_Related::class);
 	}
 
 	/**
