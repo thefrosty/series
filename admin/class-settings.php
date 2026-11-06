@@ -236,7 +236,7 @@ final class Settings_Page {
 			<form method="post" action="options.php">
 				<?php settings_fields( 'series_settings' ); ?>
 				<?php do_settings_sections( $this->settings_page ); ?>
-				<?php submit_button( esc_attr__( 'Update Settings', 'series' ), 'primary' ); ?>
+				<?php submit_button( esc_attr__( 'Update Settings', 'series' ) ); ?>
 			</form>
 
 		</div><!-- wrap -->
