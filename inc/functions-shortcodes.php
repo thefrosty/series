@@ -21,8 +21,8 @@ add_action( 'init', __NAMESPACE__ . '\register_shortcodes' );
  * @access public
  * @return void
  */
-function register_shortcodes() {
-
+function register_shortcodes(): void
+{
 	add_shortcode( 'series_list_posts',   __NAMESPACE__ . '\list_posts_shortcode'   );
 	add_shortcode( 'series_list_related', __NAMESPACE__ . '\list_related_shortcode' );
 
@@ -32,14 +32,13 @@ function register_shortcodes() {
 
 /**
  * List posts by series shortcode.
- *
- * @since  2.0.0
- * @access public
  * @param  array  $attr
  * @return string
+ * @since  2.0.0
+ * @access public
  */
-function list_posts_shortcode( $attr = array() ) {
-
+function list_posts_shortcode( array $attr = array() ): string
+{
 	$defaults = array(
 		'series'         => '',
 		'order'          => 'ASC',
@@ -62,8 +61,8 @@ function list_posts_shortcode( $attr = array() ) {
  * @param  array  $attr
  * @return string
  */
-function list_related_shortcode( $attr = array() ) {
-
+function list_related_shortcode( array $attr = array() ): string
+{
 	$defaults = array(
 		'order'          => 'ASC',
 		'orderby'        => 'date',
@@ -85,8 +84,8 @@ function list_related_shortcode( $attr = array() ) {
  * @attr   $attr
  * @return string
  */
-function the_series_shortcode( $attr ) {
-
+function the_series_shortcode( array $attr ): string
+{
 	$attr = shortcode_atts(
 		array(
 			'before'    => '',
