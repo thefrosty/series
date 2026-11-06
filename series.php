@@ -87,11 +87,10 @@ final class Plugin {
 
 	/**
 	 * Magic method to output a string if trying to use the object as a string.
-	 *
+	 * @return string
 	 * @since  2.0.0
 	 * @access public
-	 * @return void
-	 */
+     */
 	public function __toString() {
 		return 'series';
 	}
