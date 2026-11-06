@@ -1,0 +1,43 @@
+{
+  "name": "thefrosty/series",
+  "type": "wordpress-plugin",
+  "description": "Plugin that allows you to collect posts in a series.",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Justin Tadlock",
+      "email": "justintadlock@gmail.com",
+      "homepage": "https://justintadlock.com/"
+    },
+    {
+      "name": "Austin Passy",
+      "email": "367897+thefrosty@users.noreply.github.com",
+      "homepage": "https://austin.passy.co"
+    }
+  ],
+  "config": {
+    "allow-plugins": {
+    },
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.4"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^8.4"
+  },
+  "archive": {
+    "exclude": [
+      ".git",
+      "vendor",
+      ".gitignore",
+      "contributing.md",
+      "composer.json",
+      "composer.lock",
+      "readme.md",
+      "screenshot-*.png"
+    ]
+  }
+}
